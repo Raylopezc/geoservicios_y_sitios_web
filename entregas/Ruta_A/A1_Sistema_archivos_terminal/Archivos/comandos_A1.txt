@@ -1,0 +1,24 @@
+﻿ACTIVIDAD A1 - SISTEMA DE ARCHIVOS Y TERMINAL
+Taller de nivelación SIG
+Participante: Ray López
+
+OBJETIVO
+Documentar los comandos utilizados para revisar la estructura
+de archivos y carpetas del proyecto.
+
+COMANDO 1: Ir al directorio de trabajo
+Set-Location "C:\Users\Ray Lopez\curso-sig"
+
+COMANDO 2: Listar los archivos y carpetas
+Get-ChildItem
+
+ESTRUCTURA OBSERVADA
+datos
+Entrega_Ruta_A
+salidas
+scripts
+venv
+ejercicio_a3.py
+
+NOTA
+Este archivo documenta los comandos ejecutados durante la actividad.

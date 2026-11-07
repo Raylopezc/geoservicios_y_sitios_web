@@ -1,0 +1,29 @@
+﻿ACTIVIDAD A2 - GIT Y GITHUB
+Taller de nivelación SIG
+Participante: Ray López
+
+REPOSITORIO PUBLICADO
+Nombre: curso-sig-ray-lopez
+URL: https://github.com/Raylopezc/curso-sig-ray-lopez
+
+ARCHIVOS DEL REPOSITORIO
+- README.md
+- .gitignore
+- hospitales_boyaca.geojson
+
+RAMAS
+- main
+- ajuste-readme
+
+HISTORIAL DE COMMITS OBSERVADO
+- Initial commit
+- Primer commit: README, gitignore y datos de hospitales
+- Mejora el README
+
+EVIDENCIAS
+Las capturas de la página principal, la rama ajuste-readme
+y el historial de commits se encuentran en la carpeta Evidencias.
+
+NOTA
+El repositorio es público y permite consultar los archivos
+y el historial desde GitHub.

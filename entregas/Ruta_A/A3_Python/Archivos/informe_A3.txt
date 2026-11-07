@@ -1,0 +1,26 @@
+﻿ACTIVIDAD A3 - PYTHON
+Taller de nivelación en Sistemas de Información Geográfica
+Participante: Ray López
+
+OBJETIVO
+Contar los municipios asociados a cada provincia de Boyacá
+mediante Python y comparar el resultado con pandas.
+
+ARCHIVO DEL EJERCICIO
+ejercicio_a3.py
+
+MÉTODO 1
+Conteo realizado con Python sin utilizar pandas.
+
+MÉTODO 2
+Conteo realizado utilizando la biblioteca pandas.
+
+RESULTADO
+Ambos métodos identificaron 15 provincias distintas.
+Los conteos por provincia se muestran en las evidencias
+de ejecución almacenadas en la carpeta Evidencias.
+
+CONCLUSIÓN
+Los dos métodos permiten obtener el conteo por provincia.
+La comparación de resultados facilita verificar la consistencia
+del procesamiento realizado.

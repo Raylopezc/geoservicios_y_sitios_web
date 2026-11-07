@@ -1,0 +1,28 @@
+﻿ACTIVIDAD A4 - CONSULTAS WEB Y JSON
+Taller de nivelación en Sistemas de Información Geográfica
+Participante: Ray López
+
+OBJETIVO
+Documentar la consulta a un servicio web de ArcGIS REST
+y la inspección de la respuesta en formato GeoJSON.
+
+SERVICIO CONSULTADO
+Servicio de entidades de hospitales de Boyacá:
+https://services.arcgis.com/Ex2fmFOuTHORZMLr/ArcGIS/rest/services/Hospitales_Boyacá/FeatureServer/0/query
+
+VERIFICACIÓN HTTP
+En las herramientas de desarrollo del navegador se observó
+una solicitud con estado HTTP 200 OK.
+
+FORMATO DE RESPUESTA
+La respuesta observada contiene una estructura GeoJSON,
+incluyendo FeatureCollection, features, properties y geometry.
+
+SISTEMA DE REFERENCIA
+En la respuesta inspeccionada se observó EPSG:4326.
+
+EVIDENCIAS
+Las capturas de la solicitud HTTP y de la respuesta JSON
+se encuentran en la carpeta Evidencias de esta actividad.
+
+

@@ -1,0 +1,3 @@
+[submodule "entregas/Ruta_C/MAPA_BOYACA/Publicacion_Web"]
+	path = entregas/Ruta_C/MAPA_BOYACA/Publicacion_Web
+	url = https://github.com/Raylopezc/mapa-hospitales-boyaca.git

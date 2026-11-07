@@ -1,0 +1,13 @@
+﻿PROYECTO: Mapa de Hospitales de Boyacá
+
+URL PUBLICA:
+https://raylopezc.github.io/mapa-hospitales-boyaca/
+
+REPOSITORIO GITHUB:
+https://github.com/Raylopezc/mapa-hospitales-boyaca
+
+PLATAFORMA DE PUBLICACIÓN:
+GitHub Pages
+
+TOTAL DE REGISTROS:
+464 hospitales

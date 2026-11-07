@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Hospitales de Boyacá</title>
+
+    <!-- Biblioteca Leaflet -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #155e75;
+            color: white;
+            padding: 15px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        header p {
+            margin: 6px 0 0;
+            font-size: 14px;
+        }
+
+        #mapa {
+            height: calc(100% - 85px);
+            width: 100%;
+        }
+
+        .info {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px #888;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Mapa de Hospitales de Boyacá</h1>
+        <p>Visualización geográfica mediante Leaflet y servicios ArcGIS</p>
+    </header>
+
+    <div id="mapa"></div>
+
+    <!-- Biblioteca JavaScript Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        // Crear el mapa y centrarlo en Boyacá
+        const mapa = L.map("mapa").setView([5.54, -73.36], 8);
+
+        // Agregar mapa base OpenStreetMap
+        // Agregar mapa base Esri
+L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+    {
+        attribution: "Tiles &copy; Esri",
+        maxZoom: 19
+    }
+).addTo(mapa);
+
+        // Servicio geográfico de hospitales de Boyacá
+        const url = "https://services6.arcgis.com/Ex2fmFOuTOHRZtML/ArcGIS/rest/services/Hospitales_Boyac%C3%A1/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson";
+
+        // Consultar los hospitales
+        fetch(url)
+            .then(respuesta => {
+                if (!respuesta.ok) {
+                    throw new Error("Error al consultar el servicio geográfico");
+                }
+                return respuesta.json();
+            })
+            .then(datos => {
+
+                // Incorporar los hospitales al mapa
+                const hospitales = L.geoJSON(datos, {
+
+                    pointToLayer: function(feature, latlng) {
+                        return L.marker(latlng);
+                    },
+
+                    onEachFeature: function(feature, capa) {
+                        const atributos = feature.properties;
+
+                        const nombre = atributos.Nombre || "Hospital sin nombre";
+                        const municipio = atributos.NOM_MPIO || "Municipio no disponible";
+
+                        capa.bindPopup(
+                            "<strong>Hospital:</strong> " + nombre +
+                            "<br><strong>Municipio:</strong> " + municipio
+                        );
+                    }
+
+                }).addTo(mapa);
+
+                // Ajustar el mapa a la ubicación de los hospitales
+                // BUSCADOR DE HOSPITALES
+const buscador = L.control({ position: "topleft" });
+
+buscador.onAdd = function() {
+    const div = L.DomUtil.create("div", "info");
+
+    div.style.width = "240px";
+
+    div.innerHTML = `
+        <strong>Buscar hospitales</strong>
+        <input id="buscarHospital"
+               type="text"
+               placeholder="Nombre o municipio..."
+               style="width:95%; padding:7px; margin-top:8px;">
+
+        <button id="btnBuscar"
+                style="width:100%; padding:7px; margin-top:5px;">
+            Buscar
+        </button>
+
+        <div id="resultadoBusqueda"
+             style="margin-top:7px;">
+        </div>
+    `;
+
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.disableScrollPropagation(div);
+
+    return div;
+};
+
+buscador.addTo(mapa);
+
+// Ejecutar búsqueda
+function buscarHospital() {
+
+    const texto = document.getElementById("buscarHospital")
+        .value.toLowerCase().trim();
+
+    const resultado = document.getElementById("resultadoBusqueda");
+
+    if (!texto) {
+        resultado.innerHTML = "Escribe un nombre o municipio.";
+        return;
+    }
+
+    const encontrados = [];
+
+    hospitales.eachLayer(function(capa) {
+
+        const atributos = capa.feature.properties;
+
+        const nombre = String(atributos.Nombre || "").toLowerCase();
+        const municipio = String(atributos.NOM_MPIO || "").toLowerCase();
+
+        if (nombre.includes(texto) || municipio.includes(texto)) {
+            encontrados.push(capa);
+        }
+    });
+
+    if (encontrados.length === 0) {
+        resultado.innerHTML = "No se encontraron hospitales.";
+        return;
+    }
+
+    const grupo = L.featureGroup(encontrados);
+
+    mapa.fitBounds(grupo.getBounds(), {
+        padding: [40, 40],
+        maxZoom: 14
+    });
+
+    resultado.innerHTML =
+        "Resultados encontrados: " + encontrados.length;
+
+    if (encontrados.length === 1) {
+        encontrados[0].openPopup();
+    }
+}
+
+// Activar botón
+document.getElementById("btnBuscar")
+    .addEventListener("click", buscarHospital);
+
+// Buscar también con Enter
+document.getElementById("buscarHospital")
+    .addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            buscarHospital();
+        }
+    });
+                if (hospitales.getLayers().length > 0) {
+                    mapa.fitBounds(hospitales.getBounds());
+                }
+
+                // Mostrar cantidad de hospitales
+                L.control({
+                    position: "topright"
+                }).onAdd = function() {
+                    const div = L.DomUtil.create("div", "info");
+                    div.innerHTML = "<strong>Hospitales encontrados:</strong> " +
+                        hospitales.getLayers().length;
+                    return div;
+                };
+
+                const control = L.control({position: "topright"});
+                control.onAdd = function() {
+                    const div = L.DomUtil.create("div", "info");
+                    div.innerHTML = "<strong>Hospitales:</strong> " +
+                        hospitales.getLayers().length;
+                    return div;
+                };
+                control.addTo(mapa);
+                // LEYENDA CARTOGRAFICA
+const leyenda = L.control({
+    position: "bottomright"
+});
+
+leyenda.onAdd = function(mapa) {
+
+    const div = L.DomUtil.create("div", "info");
+
+    div.innerHTML = `
+        <strong>LEYENDA</strong>
+        <hr style="margin: 6px 0;">
+
+        <div style="display:flex; align-items:center; gap:8px;">
+            <span style="
+                display:inline-block;
+                width:14px;
+                height:14px;
+                background:#2789c7;
+                border:2px solid white;
+                border-radius:50%;
+                box-shadow:0 0 2px #333;
+            "></span>
+
+            <span>Hospital</span>
+        </div>
+    `;
+
+    return div;
+};
+
+leyenda.addTo(mapa);
+// FICHA DE INFORMACION CARTOGRAFICA
+const ficha = L.control({
+    position: "bottomleft"
+});
+
+ficha.onAdd = function(mapa) {
+
+    const div = L.DomUtil.create("div", "info");
+
+    div.style.width = "250px";
+
+    div.innerHTML = `
+        <strong>INFORMACIÓN CARTOGRÁFICA</strong>
+
+        <hr style="margin: 6px 0;">
+
+        <strong>Producto:</strong>
+        Mapa de Hospitales de Boyacá
+
+        <br>
+
+        <strong>Departamento:</strong>
+        Boyacá, Colombia
+
+        <br>
+
+        <strong>Registros:</strong>
+        464 hospitales
+
+        <br>
+
+        <strong>Geometría:</strong>
+        Puntos
+
+        <br>
+
+        <strong>Biblioteca:</strong>
+        Leaflet 1.9.4
+
+        <br>
+
+        <strong>Fuente:</strong>
+        ArcGIS FeatureServer
+
+        <br>
+
+        <strong>Mapa base:</strong>
+        Esri World Street Map
+    `;
+
+    return div;
+};
+
+ficha.addTo(mapa);
+
+                console.log("Hospitales cargados:", hospitales.getLayers().length);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("No fue posible cargar los hospitales. Revisa la conexión y el servicio.");
+            });
+    </script>
+
+</body>
+</html>

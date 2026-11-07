@@ -1,0 +1,47 @@
+﻿ENTREGA DE ACTIVIDADES - RUTA A
+Taller de nivelación en Sistemas de Información Geográfica (SIG)
+
+Participante: Ray López
+Directorio de trabajo: curso-sig
+
+========================================
+CONTENIDO DE LA ENTREGA
+========================================
+
+01. DATOS DE ENTRADA
+Contiene copias de los cinco archivos GeoJSON utilizados en el taller.
+Los datos originales se conservan en el directorio de trabajo.
+
+A1. SISTEMA DE ARCHIVOS Y TERMINAL
+Objetivo: documentar la organización de directorios y archivos.
+Evidencia pendiente: captura de la estructura de carpetas.
+
+A2. GIT Y GITHUB
+Repositorio:
+https://github.com/Raylopezc/curso-sig-ray-lopez
+
+Evidencia pendiente: capturas del repositorio, los commits y las ramas.
+Verificar que se visualicen main y ajuste-readme.
+
+A3. PYTHON
+Archivo: A3_Python/Archivos/ejercicio_a3.py
+Resultado registrado: identificación de 15 provincias distintas.
+Evidencia pendiente: captura de la ejecución de los dos métodos.
+
+A4. WEB Y JSON
+Evidencia pendiente: captura de la solicitud HTTP exitosa,
+el código de respuesta 200 y la respuesta GeoJSON.
+
+A5. QGIS
+Archivo: A5_QGIS/Archivos/tunja.gpkg
+Sistema de referencia: EPSG:4326 - WGS 84.
+Evidencia pendiente: captura de QGIS con la capa exportada
+y el sistema de referencia visible.
+
+========================================
+ESTADO
+========================================
+
+Los archivos de entrada, el script de Python y el GeoPackage
+se han copiado a esta carpeta de entrega.
+
