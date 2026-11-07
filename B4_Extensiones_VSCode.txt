@@ -1,0 +1,30 @@
+﻿EVIDENCIA B4 - EXTENSIONES DE VISUAL STUDIO CODE
+
+1. eamodio.gitlens
+   Gestion e historial de Git.
+
+2. esbenp.prettier-vscode
+   Formateo de codigo.
+
+3. ms-azuretools.vscode-containers
+   Administracion de contenedores.
+
+4. ms-azuretools.vscode-docker
+   Herramientas para Docker.
+
+5. ms-python.debugpy
+   Depuracion de Python.
+
+6. ms-python.python
+   Soporte para Python.
+
+7. ms-python.vscode-pylance
+   Analisis y autocompletado de Python.
+
+8. ms-python.vscode-python-envs
+   Gestion de entornos de Python.
+
+9. ritwickdey.liveserver
+   Servidor local para visualizar paginas web.
+
+TOTAL: 9 extensiones instaladas y verificadas.

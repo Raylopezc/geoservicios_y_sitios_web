@@ -46,6 +46,17 @@ services:
     volumes:
       - geoserver_data:/opt/geoserver_data
 
+  pg_tileserv:
+    image: pramsey/pg_tileserv:latest
+    container_name: curso_pg_tileserv
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgis:5432/taller_gis
+    ports:
+      - "7800:7800"
+    depends_on:
+      postgis:
+        condition: service_healthy
+
 volumes:
   pgdata:
   geoserver_data:

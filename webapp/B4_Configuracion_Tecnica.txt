@@ -1,0 +1,41 @@
+﻿EVIDENCIA B4 - CONFIGURACION NODE Y APLICACION WEB
+
+PROYECTO:
+Servicios SIG - Aplicacion web de Colombia
+
+ENTORNO:
+Visual Studio Code: 1.143.1
+Node.js: v26.12.1
+npm: 11.20.0
+
+EJECUCION:
+La aplicacion web fue ejecutada localmente mediante:
+npx.cmd serve webapp
+
+ESTRUCTURA:
+webapp/
+  css/
+  js/
+    app.js
+  index.html
+  README.md
+
+CONFIGURACION GEOGRAFICA:
+Libreria cartografica: Leaflet
+Centro inicial: Monteria, Cordoba
+Coordenadas: 8.75, -75.88
+Zoom inicial: 8
+Zoom minimo: 5
+Zoom maximo: 18
+
+SERVICIOS:
+GeoServer WMS: http://localhost:8080/geoserver/taller/wms
+GeoServer WFS: http://localhost:8080/geoserver/taller/wfs
+
+CARTOGRAFIA BASE:
+OpenStreetMap
+Esri World Imagery
+
+RESULTADO:
+Aplicacion web ejecutada correctamente en localhost:3000.
+Se realizo una modificacion en app.js y se comprobo su visualizacion.

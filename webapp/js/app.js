@@ -13,8 +13,8 @@ const WFS_URL = 'http://localhost:8080/geoserver/taller/wfs';
 
 // Configuración del mapa
 const MAP_CONFIG = {
-    center: [4.5709, -74.2973], // Centro de Colombia
-    zoom: 6,
+    center: [8.75, -75.88], // Centro de Montería, Córdoba
+    zoom: 8,
     minZoom: 5,
     maxZoom: 18
 };

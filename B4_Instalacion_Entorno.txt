@@ -1,0 +1,20 @@
+﻿EVIDENCIA B4 - INSTALACION DEL ENTORNO DE DESARROLLO
+
+Visual Studio Code
+Version: 1.143.1
+Arquitectura: x64
+
+Node.js
+Version: v26.12.1
+
+npm
+Version: 11.20.0
+
+VERIFICACION:
+Las tres herramientas fueron consultadas desde PowerShell
+y respondieron correctamente.
+
+OBSERVACION:
+La guia del taller recomienda Node.js 20 LTS.
+El equipo tiene instalada la version 26.12.1.
+La aplicacion web se ejecuto correctamente con esta version.
