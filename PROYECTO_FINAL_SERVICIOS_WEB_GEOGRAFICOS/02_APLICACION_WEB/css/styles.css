@@ -1,0 +1,173 @@
+
+/* =========================================
+   VISOR GEOGRÁFICO DE COLOMBIA
+   Hoja de estilos principal
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    background: #123b5d;
+    color: white;
+    padding: 20px 25px;
+}
+
+.encabezado h1 {
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.encabezado p {
+    font-size: 14px;
+    color: #dbeafe;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.contenedor {
+    display: flex;
+    height: calc(100vh - 125px);
+    min-height: 500px;
+    padding: 15px;
+    gap: 15px;
+}
+
+/* PANEL LATERAL */
+
+.panel-lateral {
+    width: 290px;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.panel {
+    background: white;
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.panel h2 {
+    font-size: 17px;
+    margin-bottom: 15px;
+    color: #123b5d;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+.panel label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.panel input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* INFORMACIÓN */
+
+#informacion {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #475569;
+    overflow-wrap: anywhere;
+}
+
+/* LEYENDA */
+
+.elemento-leyenda {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.simbolo {
+    width: 22px;
+    height: 15px;
+    display: inline-block;
+    border: 2px solid;
+}
+
+.departamento {
+    background: rgba(37, 99, 235, 0.25);
+    border-color: #2563eb;
+}
+
+.municipio {
+    background: rgba(16, 185, 129, 0.25);
+    border-color: #059669;
+}
+
+/* MAPA */
+
+.contenedor-mapa {
+    flex: 1;
+    min-width: 0;
+    background: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#mapa {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    text-align: center;
+    padding: 12px;
+    background: #123b5d;
+    color: white;
+    font-size: 12px;
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .encabezado {
+        padding: 15px;
+    }
+
+    .encabezado h1 {
+        font-size: 20px;
+    }
+
+    .contenedor {
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+    }
+
+    .panel-lateral {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .contenedor-mapa {
+        height: 60vh;
+        min-height: 350px;
+    }
+}

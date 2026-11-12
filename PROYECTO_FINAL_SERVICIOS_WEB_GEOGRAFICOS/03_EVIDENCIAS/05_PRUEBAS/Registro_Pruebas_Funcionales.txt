@@ -1,0 +1,52 @@
+﻿REGISTRO DE PRUEBAS FUNCIONALES
+PROYECTO: VISOR GEOGRAFICO DE COLOMBIA
+FECHA: 12/11/2026
+
+1. BASE DE DATOS POSTGIS
+Estado: Validado.
+Base de datos: taller_gis.
+Tabla departamentos: 66 registros.
+Tabla municipios: 1121 registros.
+
+2. GEOSERVER
+Estado: Validado.
+Workspace: taller.
+Servidor: http://localhost:8080/geoserver
+
+3. SERVICIO WMS
+Estado: Validado.
+Version: 1.1.1.
+Respuesta HTTP: 200.
+Formato: application/vnd.ogc.wms_xml.
+
+4. SERVICIO WFS - DEPARTAMENTOS
+Estado: Validado.
+Respuesta HTTP: 200.
+Entidades recuperadas: 5.
+Formato: GeoJSON.
+Departamentos consultados: ANTIOQUIA, ATLANTICO, BOGOTA D.C., BOLIVAR, BOYACA.
+
+5. SERVICIO WFS - MUNICIPIOS
+Estado: Validado.
+Respuesta HTTP: 200.
+Entidades recuperadas: 5.
+Formato: GeoJSON.
+Municipios consultados: MEDELLIN, ABEJORRAL, ABRIAQUI, ALEJANDRIA, AMAGA.
+
+6. CONFIGURACION CORS
+Estado: Validado.
+Origen autorizado: http://localhost:3000.
+Encabezado Access-Control-Allow-Origin: Correcto.
+
+7. APLICACION WEB LEAFLET
+Estado: Validado parcialmente mediante pruebas visuales.
+Mapa base: OpenStreetMap.
+Capas: Departamentos y municipios.
+Consulta de atributos municipales: Correcta.
+Consulta de atributos departamentales: Pendiente de evidencia especifica.
+
+OBSERVACION:
+Los resultados corresponden a las pruebas ejecutadas durante el desarrollo.
+La validacion funcional no constituye una auditoria integral de calidad de los datos.
+
+FIN DEL REGISTRO
